@@ -53,10 +53,11 @@ def generate_dict_distributions(permuted_serie,dimension):
     return dict_resultant
 
 
-def generate_transition_matriz(line_colums):
+def generate_transition_matriz(dimension):
+    length_all_permutations = len(generate_all_permutations(dimension))
     matriz = []
-    for i in range(line_colums):
-       matriz.append([0]*line_colums)
+    for i in range(length_all_permutations):
+       matriz.append([0]*length_all_permutations)
     
     return matriz
 
@@ -68,4 +69,5 @@ print()
 print(f'permutation: {permutation}')
 print()
 print(f'dict_result: {dict_result}')
-print(generate_transition_matriz(3))
+
+print(generate_transition_matriz(dimension))
