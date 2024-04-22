@@ -5,10 +5,10 @@ import ordpy as ord
 
 dimension = 3
 interval  = 1
-length_serie = 10
+length_serie = 1000000
 
 
-def gerar_serie(length_serie):
+def generate_serie(length_serie):
     serie = []
     for i in range(length_serie):
         serie.append(random.randint(1,1000))
@@ -62,6 +62,7 @@ def generate_matriz(dimension):
     
     return (matriz,perms)
 
+
 def generate_matriz_trasition(dimension,permuted_serie):
     tupla = generate_matriz(dimension)
     matriz = tupla[0]
@@ -74,7 +75,20 @@ def generate_matriz_trasition(dimension,permuted_serie):
     return matriz
  
 
-serie = gerar_serie(length_serie)
+def view_matriz(matriz, dimension):
+    perms = sorted(generate_all_permutations(dimension))
+    line_coluns = len(matriz)
+
+    print()
+    print('    ',*perms, end=" ",sep=" ")
+    print('\n')
+    for i in range(line_coluns): 
+        print(perms[i] , *matriz[i], sep=dimension*" ")
+    
+    return " "
+
+
+serie = generate_serie(length_serie)
 permutation = permutation(serie,dimension= dimension, tau= interval)
 dict_result = generate_dict_distributions(permutation,dimension)
 
@@ -85,4 +99,4 @@ print(f'dict_result: {dict_result}')
 print()
 print(f'todas as permutações: {sorted(generate_all_permutations(dimension))}')
 
-print(generate_matriz_trasition(dimension,permutation))
+print(view_matriz(generate_matriz_trasition(dimension,permutation), dimension))
