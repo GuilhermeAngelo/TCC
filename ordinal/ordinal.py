@@ -89,9 +89,3 @@ def view_matriz(matriz, dimension):
         print(perms[i] , *matriz[i], sep=dimension*" ")
     
     return ""
-
-
-# serie = read_csv("dados_random.csv", 3)
-# permutation = permutation(serie,dimension= 3, tau= 1)
-# matriz = generate_matriz_trasition(dimension,permutation)
-# print(view_matriz(matriz, dimension))
