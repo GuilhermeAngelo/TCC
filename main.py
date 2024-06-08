@@ -70,7 +70,7 @@ class OrdinalSequence:
         entropy = 0
 
         for pattern in self.all_patterns: 
-            entropy += (distribution.get(pattern)*np.log10(distribution.get(pattern)))
+            entropy += (distribution.get(pattern)*np.log(distribution.get(pattern)))
 
         return -1*entropy
     
@@ -159,6 +159,6 @@ if __name__ == "__main__":
     for i in range(1):
         objec = OrdinalSequence(archive_name='dados_random.csv', dimension=3, tau=1, column=i)
 
-        dp = f'\nDistribuição de Prob: \n{objec.distritution_probability()}\n\nDistribuição de Prob unifome: \n{objec.generate_uniform_distribution_probability()}\n\npermutação entropica:\n{objec.permutation_entropy()}\n\nQ0:\n{objec.inverse_of_maximum_value_JS()}\n\nQjs: {objec.desequilibrium_QJS()}\n\n'        
+        dp = f'\nDistribuição de Prob: \n{objec.distritution_probability()}\n\nDistribuição de Prob unifome: \n{objec.generate_uniform_distribution_probability()}\n\npermutação entropica:\n{objec.permutation_entropy()}\n\nQ0:\n{objec.inverse_of_maximum_value_JS()}\n\nDivergência:{objec.jensen_shannon_divergense()}\n\nQjs: {objec.desequilibrium_QJS()}\n\n'        
 
         print(dp)
